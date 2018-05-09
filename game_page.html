@@ -17,8 +17,8 @@ to save the water.
         <p><b>Save Our Water!</b></p>
     </div>
     
-    <div id="time" style="position:absolute; top:57px; left:150px;">time :</div>
-    <div id="score" style="position:absolute; top:57px; left:300px;">score :</div>    
+    <div id="time" style="position:absolute; top:57px; left:150px;">time : 00</div>
+    <div id="score" style="position:absolute; top:57px; left:300px;">score : 00</div>    
     <div id="base" style="position:absolute;  top:80px; left:0px; width:375px; height:507px; border: solid 1px;">
     
     <img id="blocks0" src="./game_images/stove2.gif" ontouchstart="blockFunction(event)"/>
@@ -47,18 +47,18 @@ to save the water.
         var score = 0;
         var time = 0;
         var image;
-        
         var blockVariables = [];
         for(var i = 0 ; i<10 ; i++){
             blockVariables[i] = false;
         }
-        
         function blockFunction(e){
             if(blockVariables[e.target.id.charAt(e.target.id.length-1)]){
                 var source = e.target.id.charAt(e.target.id.length-1);
                 if( 0 == source){document.getElementById("blocks0").src = "./game_images/stove2.gif";}else if( 1 == source){document.getElementById("blocks1").src = "./game_images/laundry1.gif" ;}else if( 2 == source){document.getElementById("blocks2").src = "./game_images/sesu2.gif";}else if( 3 == source){document.getElementById("blocks3").src = "./game_images/bottle2.gif";}else if( 4== source){document.getElementById("blocks4").src = "./game_images/sink2.gif";}else if( 5 == source){document.getElementById("blocks5").src = "./game_images/sink2.gif";}else if( 6 == source){document.getElementById("blocks6").src = "./game_images/sesu2.gif";}else if( 7 == source){document.getElementById("blocks7").src = "./game_images/sesu2.gif";}else if( 8 == source){document.getElementById("blocks8").src = "./game_images/shower1.gif";}else if( 9 == source){document.getElementById("blocks9").src = "./game_images/hose1.gif";}blockVariables[source] = !blockVariables[source];
                 waterLevel += 1.0;
                 document.getElementById("water").style.height = waterLevel + "px";
+                score += 1;
+                document.getElementById("score").innerHTML = "score : " + score;
                 }
                 return false;
         }
