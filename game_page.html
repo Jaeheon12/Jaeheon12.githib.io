@@ -13,7 +13,7 @@ to save the water.
 <link rel="stylesheet" href="style1.css"/>
 </head>
 <body onload="randFunction();">
-    <div id="belowest" style="position:absolute; top:0px; left:0px;"></div>
+    <div id="belowest" style="position:absolute; top:0px; left:0px;">aaaaaaa</div>
     <div id = "title" style="position:absolute; top:0px; left:0px; height:80px; width:375px; border:solid 1px; background-color:azure; text-align: center;font-size:20px;color:darkblue;">
         <p><b>Save Our Water!</b></p>
     </div>
@@ -112,9 +112,10 @@ to save the water.
                     var delayInMilliseconds = 1000; //1 second
 
                     setTimeout(function() {
-                        var data = loadScore();
+                        //var data = loadScore();
                         console.log("Back to main page"); //your code to be executed after 1 second
                     }, delayInMilliseconds);
+                    var data = loadScore();
                     document.getElementById("belowest").innerHTML = data[user_name] + " " + data[user_pwd] + " " + data[user_score];
                     console.log("data[user_name] = " + data[user_name]);
                     console.log("data[user_pwd] = " + data[user_pwd]);
