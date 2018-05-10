@@ -13,6 +13,7 @@ to save the water.
 <link rel="stylesheet" href="style1.css"/>
 </head>
 <body onload="randFunction();">
+    <div id="belowest" style="position:absolute; top:0px; left:300px;"></div>
     <div id = "title" style="position:absolute; top:0px; left:0px; height:80px; width:375px; border:solid 1px; background-color:azure; text-align: center;font-size:20px;color:darkblue;">
         <p><b>Save Our Water!</b></p>
     </div>
@@ -70,7 +71,7 @@ to save the water.
             document.getElementById("water").style.height = waterLevel + "px";
         }
         
-
+        var truePrac = true;
         function randFunction() {
             setInterval(function(){ 
             var spawnRatio = Math.floor((Math.random() * 2) + 1);
@@ -101,10 +102,11 @@ to save the water.
             for(var i = 0 ; i < 10 ; i++){
                 if(blockVariables[i]){
                 //waterLevel -= 0.2;
-                    waterLevel -= 5.2;
-                    
+                waterLevel -= 5.2;
+                
+                if(truePrac){
                 if(waterLevel <= 0){
-                   
+                   truePrac = fasle;
                     
                     saveScore(score);
                     var delayInMilliseconds = 1000; //1 second
@@ -113,12 +115,14 @@ to save the water.
                         var data = loadScore();
                         console.log("Back to main page"); //your code to be executed after 1 second
                     }, delayInMilliseconds);
+                    document.getElementById("belowest").innerHTML = data[user_name] + " " + data[user_pwd] + " " + data[user_score];
                     console.log("data[user_name] = " + data[user_name]);
                     console.log("data[user_pwd] = " + data[user_pwd]);
                     console.log("data[user_score] = " + data[user_score]);
                 }
                     
                 document.getElementById("water").style.height = waterLevel + "px";
+                }
                 }
             }}, 200);
          }
