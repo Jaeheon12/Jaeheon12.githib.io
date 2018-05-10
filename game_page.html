@@ -42,6 +42,8 @@ to save the water.
          style="position:absolute;  bottom:0px; width:90px; height:200px; border: solid; background-color: azure;"> <div id="water"></div>
     </div></div>
     <br>
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+    <script src="./js/dBAPIs.js"></script>
     <script>
         var waterLevel = 200;
         var score = 0;
@@ -100,14 +102,18 @@ to save the water.
                 if(blockVariables[i]){
                 waterLevel -= 0.2;
                     
-//                if(waterLevel <= 0){
-//                    popUpGameOver();
-//                    var leadusers;
-//                    if(save(score)){
-//                        leadusers = load();
-//                    }
-//                    popUpLeadBoard();
-//                }
+                if(waterLevel <= 0){
+                   
+                    
+                    saveScore(score);
+                    var delayInMilliseconds = 1000; //1 second
+
+                    setTimeout(function() {
+                        var data = loadScore();
+                        console.log("Back to main page"); //your code to be executed after 1 second
+                    }, delayInMilliseconds);
+                   console.log("data = " + data);
+                }
                     
                 document.getElementById("water").style.height = waterLevel + "px";
                 }
