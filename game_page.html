@@ -13,7 +13,7 @@ to save the water.
 <link rel="stylesheet" href="style1.css"/>
 </head>
 <body onload="randFunction();">
-    <div id="belowest" style="position:absolute; top:0px; left:0px; border:solid;">aaaaaaa</div>
+    <div id="belowest" style="position:absolute; top:0px; left:0px; border:solid; z-index: :5;">aaaaaaa</div>
     <div id = "title" style="position:absolute; top:0px; left:0px; height:80px; width:375px; border:solid 1px; background-color:azure; text-align: center;font-size:20px;color:darkblue;">
         <p><b>Save Our Water!</b></p>
     </div>
@@ -109,7 +109,7 @@ to save the water.
                    truePrac = false;
                     
                     saveScore(score);
-                    var delayInMilliseconds = 1000; //1 second
+                    var delayInMilliseconds = 5000; //1 second
                     
                     var data;
                     setTimeout(function() {
@@ -117,10 +117,9 @@ to save the water.
                         console.log("Back to main page"); //your code to be executed after 1 second
                     }, delayInMilliseconds);
                     
-                    document.getElementById("belowest").innerHTML = data["user_name"] + " " + data["user_pwd"] + " " + data["user_score"];
-                    console.log("data[user_name] = " + data["user_name"]);
-                    console.log("data[user_pwd] = " + data["user_pwd"]);
-                    console.log("data[user_score] = " + data["user_score"]);
+                    //document.getElementById("belowest").innerHTML = data["user_name"] + " " + data["user_pwd"] + " " + data["user_score"];
+                    console.log(data);
+                    
                 }
                     
                 document.getElementById("water").style.height = waterLevel + "px";
