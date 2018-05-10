@@ -110,9 +110,10 @@ to save the water.
                     
                     saveScore(score);
                     var delayInMilliseconds = 1000; //1 second
-
+                    
+                    var data;
                     setTimeout(function() {
-                        var data = loadScore();
+                        data = loadScore();
                         console.log("Back to main page"); //your code to be executed after 1 second
                     }, delayInMilliseconds);
                     
