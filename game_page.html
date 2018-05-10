@@ -115,12 +115,12 @@ to save the water.
                     setTimeout(function() {
                         data = loadScore();
                         console.log("Back to main page"); //your code to be executed after 1 second
+                        console.log("data.val() =  " + data.val());
+                        console.log("JSON.stringify(data) =  " + JSON.stringify(data));
+
                     }, delayInMilliseconds);
                     
-                    //document.getElementById("belowest").innerHTML = data["user_name"] + " " + data["user_pwd"] + " " + data["user_score"];
-                    console.log("data.val() =  " + data.val());
-                    console.log("JSON.stringify(data) =  " + JSON.stringify(data));
-                    
+                     
                 }
                     
                 document.getElementById("water").style.height = waterLevel + "px";
