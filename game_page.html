@@ -100,7 +100,8 @@ to save the water.
             }
             for(var i = 0 ; i < 10 ; i++){
                 if(blockVariables[i]){
-                waterLevel -= 0.2;
+                //waterLevel -= 0.2;
+                    waterLevel -= 5.2;
                     
                 if(waterLevel <= 0){
                    
@@ -112,7 +113,9 @@ to save the water.
                         var data = loadScore();
                         console.log("Back to main page"); //your code to be executed after 1 second
                     }, delayInMilliseconds);
-                   console.log("data = " + data);
+                    console.log("data[user_name] = " + data[user_name]);
+                    console.log("data[user_pwd] = " + data[user_pwd]);
+                    console.log("data[user_score] = " + data[user_score]);
                 }
                     
                 document.getElementById("water").style.height = waterLevel + "px";
