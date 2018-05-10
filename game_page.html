@@ -13,7 +13,7 @@ to save the water.
 <link rel="stylesheet" href="style1.css"/>
 </head>
 <body onload="randFunction();">
-    <div id="belowest" style="position:absolute; top:0px; left:300px;"></div>
+    <div id="belowest" style="position:absolute; top:0px; left:0px;"></div>
     <div id = "title" style="position:absolute; top:0px; left:0px; height:80px; width:375px; border:solid 1px; background-color:azure; text-align: center;font-size:20px;color:darkblue;">
         <p><b>Save Our Water!</b></p>
     </div>
@@ -106,7 +106,7 @@ to save the water.
                 
                 if(truePrac){
                 if(waterLevel <= 0){
-                   truePrac = fasle;
+                   truePrac = false;
                     
                     saveScore(score);
                     var delayInMilliseconds = 1000; //1 second
