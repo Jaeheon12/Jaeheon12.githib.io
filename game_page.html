@@ -112,10 +112,10 @@ to save the water.
                     var delayInMilliseconds = 1000; //1 second
 
                     setTimeout(function() {
-                        //var data = loadScore();
+                        var data = loadScore();
                         console.log("Back to main page"); //your code to be executed after 1 second
                     }, delayInMilliseconds);
-                    var data = loadScore();
+                    
                     document.getElementById("belowest").innerHTML = data["user_name"] + " " + data["user_pwd"] + " " + data["user_score"];
                     console.log("data[user_name] = " + data["user_name"]);
                     console.log("data[user_pwd] = " + data["user_pwd"]);
