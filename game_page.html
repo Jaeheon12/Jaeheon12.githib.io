@@ -12,7 +12,7 @@ to save the water.
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <link rel="stylesheet" href="style1.css"/>
 </head>
-<body onload="timeFunction();">
+<body onload="randFunction();">
     <div id = "title" style="position:absolute; top:0px; left:0px; height:80px; width:375px; border:solid 1px; background-color:azure; text-align: center;font-size:20px;color:darkblue;">
         <p><b>Save Our Water!</b></p>
     </div>
@@ -53,14 +53,14 @@ to save the water.
         }
         function blockFunction(e){
             if(blockVariables[e.target.id.charAt(e.target.id.length-1)]){
-                var source = e.target.id.charAt(e.target.id.length-1);
-                if( 0 == source){document.getElementById("blocks0").src = "./game_images/stove2.gif";}else if( 1 == source){document.getElementById("blocks1").src = "./game_images/laundry1.gif" ;}else if( 2 == source){document.getElementById("blocks2").src = "./game_images/sesu2.gif";}else if( 3 == source){document.getElementById("blocks3").src = "./game_images/bottle2.gif";}else if( 4== source){document.getElementById("blocks4").src = "./game_images/sink2.gif";}else if( 5 == source){document.getElementById("blocks5").src = "./game_images/sink2.gif";}else if( 6 == source){document.getElementById("blocks6").src = "./game_images/sesu2.gif";}else if( 7 == source){document.getElementById("blocks7").src = "./game_images/sesu2.gif";}else if( 8 == source){document.getElementById("blocks8").src = "./game_images/shower1.gif";}else if( 9 == source){document.getElementById("blocks9").src = "./game_images/hose1.gif";}blockVariables[source] = !blockVariables[source];
-                waterLevel += 1.0;
-                document.getElementById("water").style.height = waterLevel + "px";
-                score += 1;
-                document.getElementById("score").innerHTML = "score : " + score;
-                }
-                return false;
+            var source = e.target.id.charAt(e.target.id.length-1);
+            if( 0 == source){document.getElementById("blocks0").src = "./game_images/stove2.gif";}else if( 1 == source){document.getElementById("blocks1").src = "./game_images/laundry1.gif" ;}else if( 2 == source){document.getElementById("blocks2").src = "./game_images/sesu2.gif";}else if( 3 == source){document.getElementById("blocks3").src = "./game_images/bottle2.gif";}else if( 4== source){document.getElementById("blocks4").src = "./game_images/sink2.gif";}else if( 5 == source){document.getElementById("blocks5").src = "./game_images/sink2.gif";}else if( 6 == source){document.getElementById("blocks6").src = "./game_images/sesu2.gif";}else if( 7 == source){document.getElementById("blocks7").src = "./game_images/sesu2.gif";}else if( 8 == source){document.getElementById("blocks8").src = "./game_images/shower1.gif";}else if( 9 == source){document.getElementById("blocks9").src = "./game_images/hose1.gif";}blockVariables[source] = !blockVariables[source];
+            waterLevel += 1.0;
+            document.getElementById("water").style.height = waterLevel + "px";
+            score += 1;
+            document.getElementById("score").innerHTML = "score : " + score;
+            }
+            return false;
         }
         function blocksFunction(e){
             e.target.style.visibility = "hidden";
@@ -69,7 +69,7 @@ to save the water.
         }
         
 
-        function timeFunction() {
+        function randFunction() {
             setInterval(function(){ 
             var spawnRatio = Math.floor((Math.random() * 2) + 1);
             if(spawnRatio==1){
@@ -77,7 +77,7 @@ to save the water.
                 for(var i = 0; i<max; i++){
                     var source = Math.floor((Math.random() * 10) + 1) - 1;
                     if(!blockVariables[source]){
-                        if( 0 == source){document.getElementById("blocks0").src = "./game_images/stove2w.gif";}else if( 1 == source){document.getElementById("blocks1").src = "./game_images/laundry1w.gif" ;}else if( 2 == source){document.getElementById("blocks2").src = "./game_images/sesu2w.gif";}else if( 3 == source){document.getElementById("blocks3").src = "./game_images/bottle2w.gif";}else if( 4== source){document.getElementById("blocks4").src = "./game_images/sink2w.gif";}else if( 5 == source){document.getElementById("blocks5").src = "./game_images/sink2w.gif";}else if( 6 == source){document.getElementById("blocks6").src = "./game_images/sesu2w.gif";}else if( 7 == source){document.getElementById("blocks7").src = "./game_images/sesu2w.gif";}else if( 8 == source){document.getElementById("blocks8").src = "./game_images/shower1w.gif";}else if( 9 == source){document.getElementById("blocks9").src = "./game_images/hose1w.gif";}blockVariables[source] = !blockVariables[source];
+                    if( 0 == source){document.getElementById("blocks0").src = "./game_images/stove2w.gif";}else if( 1 == source){document.getElementById("blocks1").src = "./game_images/laundry1w.gif" ;}else if( 2 == source){document.getElementById("blocks2").src = "./game_images/sesu2w.gif";}else if( 3 == source){document.getElementById("blocks3").src = "./game_images/bottle2w.gif";}else if( 4== source){document.getElementById("blocks4").src = "./game_images/sink2w.gif";}else if( 5 == source){document.getElementById("blocks5").src = "./game_images/sink2w.gif";}else if( 6 == source){document.getElementById("blocks6").src = "./game_images/sesu2w.gif";}else if( 7 == source){document.getElementById("blocks7").src = "./game_images/sesu2w.gif";}else if( 8 == source){document.getElementById("blocks8").src = "./game_images/shower1w.gif";}else if( 9 == source){document.getElementById("blocks9").src = "./game_images/hose1w.gif";}blockVariables[source] = !blockVariables[source];
                     }
                 }
             }
@@ -85,10 +85,7 @@ to save the water.
                 var max = Math.floor((Math.random() * 3) + 1) - 1;
                 for(var i = 0; i<max; i++){
                 var source = Math.floor((Math.random() * 3) + 1) - 1;
-                if(source == 0){document.getElementById("items0").style.visibility="visible";
-                }else if(source == 1){                  document.getElementById("items1").style.visibility="visible";
-                }else if(source == 2){document.getElementById("items2").style.visibility="visible";
-                }}
+                if(source == 0){document.getElementById("items0").style.visibility="visible";}else if(source == 1){document.getElementById("items1").style.visibility="visible";}else if(source == 2){document.getElementById("items2").style.visibility="visible";}}
             }
             time += 1;
 
