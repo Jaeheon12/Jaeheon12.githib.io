@@ -117,10 +117,14 @@ to save the water.
                         console.log("Back to main page"); //your code to be executed after 1 second
                         console.log("data.val() =  " + data.val());
                         console.log("JSON.stringify(data) =  " + JSON.stringify(data));
-
+                        console.log("user_name =" + data[localStorage.getItem("userKey")]["user_name"]);
                     }, delayInMilliseconds);
                     
-                     
+// {"-LBiN1v1qhm7HfYiTsHn":{"user_name":"qqq","user_pwd":"12","user_score":0},
+//     "-LBwpxfn3kvnd8zBoOyg":{"user_name":"peter","user_pwd":"123","user_score":0},
+//         "-LC0oO-FFcUmmY_fU5Ti":{"user_name":"ccc","user_pwd":"12","user_score":0},
+//             "-LC2T1aq6ssU1TlyGRgc":{"user_name":"mmm","user_pwd":"12","user_score":0},
+//                 "-LC2TH3Mq4dsedKy_4sg":{"user_name":"Eee","user_pwd":"12","user_score":0},"-LC2w2-31it_58r-CwxB":{"user_name":"Prabh","user_pwd":"rt","user_score":0},"null":{"user_score":0}}
                 }
                     
                 document.getElementById("water").style.height = waterLevel + "px";
