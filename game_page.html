@@ -117,7 +117,20 @@ to save the water.
                         console.log("Back to main page"); //your code to be executed after 1 second
                         console.log("data.val() =  " + data.val());
                         console.log("JSON.stringify(data) =  " + JSON.stringify(data));
-                        console.log("user_name =" + data[localStorage.getItem("userKey")]);
+                        data.forEach(function(childSnapshot) {
+                            var childKey = childSnapshot.key;
+                            var childData = childSnapshot.val();
+
+                            console.log(childKey + " " + childData['user_name'] + " " + childData['user_pwd'] + " " +
+                                childData['user_score']);
+
+//                            if (childData['user_name'] == userName && childData['user_pwd'] == passWord) {
+//                                isUserValid = true;
+//                                userKey = childKey;
+//                                console.log(userName + "+++" + passWord + "()" + isUserValid);
+//
+//                            }
+                        });
                     }, delayInMilliseconds);
                     
 // {"-LBiN1v1qhm7HfYiTsHn":{"user_name":"qqq","user_pwd":"12","user_score":0},
