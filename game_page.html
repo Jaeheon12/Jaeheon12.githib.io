@@ -13,7 +13,6 @@ to save the water.
 <link rel="stylesheet" href="style1.css"/>
 </head>
 <body onload="randFunction();">
-    <div id="belowest" style="position:absolute; top:0px; left:0px; border:solid; z-index: :5;">aaaaaaa</div>
     <div id = "title" style="position:absolute; top:0px; left:0px; height:80px; width:375px; border:solid 1px; background-color:azure; text-align: center;font-size:20px;color:darkblue;">
         <p><b>Save Our Water!</b></p>
     </div>
@@ -43,8 +42,6 @@ to save the water.
          style="position:absolute;  bottom:0px; width:90px; height:200px; border: solid; background-color: azure;"> <div id="water"></div>
     </div></div>
     <br>
-    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
-    <script src="./js/dBAPIs.js"></script>
     <script>
         var waterLevel = 200;
         var score = 0;
@@ -71,7 +68,7 @@ to save the water.
             document.getElementById("water").style.height = waterLevel + "px";
         }
         
-        var truePrac = true;
+
         function randFunction() {
             setInterval(function(){ 
             var spawnRatio = Math.floor((Math.random() * 2) + 1);
@@ -101,50 +98,18 @@ to save the water.
             }
             for(var i = 0 ; i < 10 ; i++){
                 if(blockVariables[i]){
-                //waterLevel -= 0.2;
-                waterLevel -= 5.2;
-                
-                if(truePrac){
-                if(waterLevel <= 0){
-                   truePrac = false;
+                waterLevel -= 0.2;
                     
-                    saveScore(score);
-                    var delayInMilliseconds = 5000; //1 second
-                    
-                    var data;
-                    setTimeout(function() {
-                        data = loadScore();
-                        console.log("Back to main page"); //your code to be executed after 1 second
-                        console.log("data.val() =  " + data.val());
-                        console.log("userKey = " + localStorage.getItem("userKey"));
-                        
-                        
-                        
-//                        data.forEach(function(childSnapshot) {
-//                            var childKey = childSnapshot.key;
-//                            var childData = childSnapshot.val();
-//
-//                            console.log(childKey + " " + childData['user_name'] + " " + childData['user_pwd'] + " " +
-//                                childData['user_score']);
-//
-////                            if (childData['user_name'] == userName && childData['user_pwd'] == passWord) {
-////                                isUserValid = true;
-////                                userKey = childKey;
-////                                console.log(userName + "+++" + passWord + "()" + isUserValid);
-////
-////                            }
-//                        });
-                    }, delayInMilliseconds);
-                    
-// {"-LBiN1v1qhm7HfYiTsHn":{"user_name":"qqq","user_pwd":"12","user_score":0},
-//     "-LBwpxfn3kvnd8zBoOyg":{"user_name":"peter","user_pwd":"123","user_score":0},
-//         "-LC0oO-FFcUmmY_fU5Ti":{"user_name":"ccc","user_pwd":"12","user_score":0},
-//             "-LC2T1aq6ssU1TlyGRgc":{"user_name":"mmm","user_pwd":"12","user_score":0},
-//                 "-LC2TH3Mq4dsedKy_4sg":{"user_name":"Eee","user_pwd":"12","user_score":0},"-LC2w2-31it_58r-CwxB":{"user_name":"Prabh","user_pwd":"rt","user_score":0},"null":{"user_score":0}}
-                }
+//                if(waterLevel <= 0){
+//                    popUpGameOver();
+//                    var leadusers;
+//                    if(save(score)){
+//                        leadusers = load();
+//                    }
+//                    popUpLeadBoard();
+//                }
                     
                 document.getElementById("water").style.height = waterLevel + "px";
-                }
                 }
             }}, 200);
          }
