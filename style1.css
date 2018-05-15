@@ -1,21 +1,21 @@
 /*=================================================================*/
 /*=================================================================*/
 /*=================================================================*/
-/* 347.5 ~~ 394.5px 												   */
+/* 0 ~~ 347.4px 												   */
 /*=================================================================*/
 /*=================================================================*/
 /*=================================================================*/
-@media screen and (min-width: 0px) and (max-width: 374.4px){
+@media screen and (min-width: 0px) and (max-width: 347.4px){
 	#blocks0{left:0px;top:0px;width:40.634453781512605%;height:auto;position:absolute;border:solid 1px;} #blocks1{left:185.0347648261759px;top:0px;width:40.634453781512605%;height:auto;position:absolute;border:solid 1px;} #blocks2{left:0px;top:130.4579831932773px;height:18.108384458077712%;width:auto;position:absolute;border:solid 1px;} #blocks3{left:65.84867075664621px;top:131.31344537815127px;height:18.108384458077712%;width:auto;position:absolute;border:solid 1px;} #blocks4{left:142.8916155419223px;top:115.4873949579832px;height:18.108384458077712%;width:auto;position:absolute;border:solid 1px;} #blocks5{left:275.90593047034764px;top:114.63193277310924px;height:18.108384458077712%;width:auto;position:absolute;border:solid 1px;} #blocks6{left:193.59509202453987px;top:128.74705882352941px;height:18.108384458077712%;width:auto;position:absolute;border:solid 1px;} #blocks7{left:276.5644171779141px;top:374.264705882353px;height:18.108384458077712%;width:auto;position:absolute;border:solid 1px;} #blocks8{left:190.96114519427405px;top:245.9453781512605px;width:22.108384458077712%;height:auto;position:absolute;border:solid 1px;} #blocks9{left:58.2760736196319px;top:321.653781512605px;height:18.108384458077712%;width:auto;position:absolute;border:solid 1px;} 
 	#items0{left:188.11451942740288px;top:52.6109243697479px;height:13%;width:auto;position:absolute; visibility:hidden;} #items1{left:38.5480572597137px;top:230.11932773109243px;height:13%;width:auto;position:absolute; visibility:hidden;} #items2{left:301.44580777096115px;top:318.65966386554624px;height:13%;width:auto;position:absolute; visibility:hidden;}
 	#title{
-		position:absolute; top:0px; left:0px; height:80px; width:375px; border:solid 1px; background-color:azure; text-align: center;font-size:20px;color:darkblue;
+		position:absolute; top:0px; left:0px; height:80px; width:320px; border:solid 1px; background-color:azure; text-align: center;font-size:20px;color:darkblue;
 	}
 	#base{
 			
 		background-image: url("./game_images/house10.png");
 		background-size: cover;
-		position:absolute;  top:80px; left:0px; width:375px; height:507px; border: solid 1px;
+		position:absolute;  top:80px; left:0px; width:320px; height:507px; border: solid 1px;
 	}
 
 	#fish{
@@ -35,7 +35,7 @@
 		min-height:3px;
 	}
 	#belowest{
-		position:absolute; top:589px; left:0px; height:80px; width:375px; border:solid 1px; background-color:#382F71;border:solid 1px;
+		position:absolute; top:589px; left:0px; height:80px; width:320px; border:solid 1px; background-color:#382F71;border:solid 1px;
 	}
 }
 
@@ -78,5 +78,47 @@
 	}
 	#belowest{
 		position:absolute; top:589px; left:0px; height:80px; width:375px; border:solid 1px; background-color:#382F71;border:solid 1px;
+	}
+}
+
+
+/*=================================================================*/
+/*=================================================================*/
+/*=================================================================*/
+/* 394.6 ~~ 1280px 												   */
+/*=================================================================*/
+/*=================================================================*/
+/*=================================================================*/
+@media screen and (min-width: 394.6px) and (max-width: 1280px){
+	#blocks0{left:0px;top:0px;width:40.634453781512605%;height:auto;position:absolute;border:solid 1px;} #blocks1{left:239.0511247443763px;top:0px;width:40.634453781512605%;height:auto;position:absolute;border:solid 1px;} #blocks2{left:0px;top:130.4579831932773px;height:23.394683026584868%;width:auto;position:absolute;border:solid 1px;} #blocks3{left:85.07157464212679px;top:131.31344537815127px;height:23.394683026584868%;width:auto;position:absolute;border:solid 1px;} #blocks4{left:184.60531697341514px;top:115.4873949579832px;height:23.394683026584868%;width:auto;position:absolute;border:solid 1px;} #blocks5{left:356.44989775051124px;top:114.63193277310924px;height:23.394683026584868%;width:auto;position:absolute;border:solid 1px;} #blocks6{left:250.11042944785274px;top:128.74705882352941px;height:23.394683026584868%;width:auto;position:absolute;border:solid 1px;} #blocks7{left:357.30061349693256px;top:374.264705882353px;height:23.394683026584868%;width:auto;position:absolute;border:solid 1px;} #blocks8{left:246.7075664621677px;top:245.9453781512605px;width:27.394683026584868%;height:auto;position:absolute;border:solid 1px;} #blocks9{left:75.28834355828221px;top:321.653781512605px;width:40.634453781512605%;height:auto;position:absolute;border:solid 1px;} 
+	#items0{left:188.11451942740288px;top:52.6109243697479px;height:13%;width:auto;position:absolute; visibility:hidden;} #items1{left:38.5480572597137px;top:230.11932773109243px;height:13%;width:auto;position:absolute; visibility:hidden;} #items2{left:301.44580777096115px;top:318.65966386554624px;height:13%;width:auto;position:absolute; visibility:hidden;}
+	#title{
+		position:absolute; top:0px; left:0px; height:80px; width:414px; border:solid 1px; background-color:azure; text-align: center;font-size:20px;color:darkblue;
+	}
+	#base{
+			
+		background-image: url("./game_images/house10.png");
+		background-size: cover;
+		position:absolute;  top:80px; left:0px; width:375px; height:507px; border: solid 1px;
+	}
+
+	#fish{
+		opacity: 0.9;
+		z-index: 5;
+	}
+	#water{
+		position: absolute;
+		bottom:0px;
+		left:0px;
+		z-index: 5;
+		background-color:aqua;
+		height:200px;
+		width:90px;
+		opacity: 0.9;
+		max-height:200px;
+		min-height:3px;
+	}
+	#belowest{
+		position:absolute; top:589px; left:0px; height:80px; width:414px; border:solid 1px; background-color:#382F71;border:solid 1px;
 	}
 }
