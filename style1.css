@@ -13,7 +13,7 @@
 	}
 	#base{
 			
-		background-image: url("house10.png");
+		background-image: url("./game_images/house10.png");
 		background-size: cover;
 		position:absolute;  top:80px; left:0px; width:375px; height:507px; border: solid 1px;
 	}
@@ -55,7 +55,7 @@
 	}
 	#base{
 			
-		background-image: url("house10.png");
+		background-image: url("./game_images/house10.png");
 		background-size: cover;
 		position:absolute;  top:80px; left:0px; width:375px; height:507px; border: solid 1px;
 	}
