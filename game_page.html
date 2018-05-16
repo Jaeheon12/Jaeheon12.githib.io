@@ -15,8 +15,8 @@ to save the water.
 <body>
     <div id = "title">
         <p><b>Save Our Water!</b></p>
-        <div id="time" style="position:absolute; top:70%; left:45%;">time : 00</div>
-        <div id="score" style="position:absolute; top:70%; left:70%">score : 00</div>  
+        <div id="time" style="position:absolute; top:70%; left:40%;">time : 00</div>
+        <div id="score" style="position:absolute; top:70%; left:75%">score : 00</div>  
     </div>
       
     <div id="base">
@@ -50,7 +50,7 @@ to save the water.
         var time = 0;
         var yn = 0;
         
-        if(localStorage.getItem("userKey") == "null"){
+        if(localStorage.getItem("loginStatus") == "false"){
             var div1 = document.createElement("div");
             div1.setAttribute("id","gamestart");
             div1.style.backgroundColor = "#382F71";
@@ -174,9 +174,47 @@ to save the water.
                     div1.style.border = "solid";
                     div1.style.zIndex = "6";
                     div1.style.textAlign = "center"; 
-                    div1.style.fontSize = "30px";
+                    div1.style.fontSize = "28px";
                     div1.style.color = "azure";
-                    div1.innerHTML = "<br>Game Over<br><input type='button' value='Restart!' onclick='location.reload()'/><br><input type='button' value='Main Page' onclick='ynFunction2()'/><br><input type='button' value='Leader Board' onclick='scoreLine()'/>";
+                     div1.innerHTML = "<br>Game Over";
+//                    div1.innerHTML = "<br>Game Over<br><input type='button' value='Restart!' onclick='location.reload()'/><br><input type='button' value='Main Page' onclick='ynFunction2()'/><br><input type='button' value='Leader Board' onclick='scoreLine()'/>";
+                    
+                    var btn1 = document.createElement("input");
+                    btn1.setAttribute("id","btn1");
+                    btn1.style.position = "absolute";
+                    btn1.style.top = "40%";
+                    btn1.style.left = "40%";
+                    btn1.type = "button";
+                    btn1.setAttribute("value", "Restart!");
+                    btn1.setAttribute("onclick", "location.reload()");
+                    
+                    div1.appendChild(btn1);
+                    
+                    var btn2 = document.createElement("input");
+                    btn2.setAttribute("id","btn2");
+                    btn2.style.position = "absolute";
+                    btn2.style.top = "60%";
+                    btn2.style.left = "38%";
+                    btn2.type = "button";
+                    btn2.setAttribute("value", "Main Page");
+                    btn2.setAttribute("onclick", "ynFunction2()");
+                    
+                    div1.appendChild(btn2);
+                    
+                    var btn3 = document.createElement("input");
+                    btn3.setAttribute("id","btn3");
+                    btn3.style.position = "absolute";
+                    btn3.style.top = "80%";
+                    btn3.style.left = "35%";
+                    btn3.type = "button";
+                    btn3.setAttribute("value", "Leader Board");
+                    btn3.setAttribute("onclick", "scoreLine()");
+                    
+                    div1.appendChild(btn3);
+                    
+                    
+                    
+                    
                     document.getElementById("base").appendChild(div1);
                 }
                     

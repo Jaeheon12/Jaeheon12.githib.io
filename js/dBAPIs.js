@@ -46,6 +46,7 @@ function saveScore(score) {
     dbRefObject.update(updates);
 
     //    alert("Score is written successfully!");
+
 }
 
 function loadScore() {
