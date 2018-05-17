@@ -86,11 +86,11 @@ zoom out, zoom in
         
         
         function playAudio(e) { 
-            if(e==0){
+            if(e==0 && x0.paused){
                 x0.play();
-            }else if(e==1){
+            }else if(e==1 && x1.paused){
                 x1.play();
-            }else if(e==2){
+            }else if(e==2 && x2.paused){
                 x2.play();
             }
         } 
