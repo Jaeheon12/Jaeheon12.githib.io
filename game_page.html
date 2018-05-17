@@ -6,6 +6,16 @@ The method of the game :
 A user has to turn off the faucats that are randomely turned on and take items
 to save the water.
 -->
+
+<!--
+time stops
+difficulty
+sounds
+zoom out, zoom in
+-->
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,16 +31,26 @@ to save the water.
       
     <div id="base">
     <img id="blocks0" src="./game_images/stove2.gif" ontouchstart="blockFunction(event)"/>
+
     <img id="blocks1" src="./game_images/laundry1.gif" ontouchstart="blockFunction(event)"/>
+
     <img id="blocks2" src="./game_images/sesu2.gif" ontouchstart="blockFunction(event)"/>
+
     <img id="blocks3" src="./game_images/bottle2.gif" ontouchstart="blockFunction(event)"/>
+
     <img id="blocks4" src="./game_images/sink2.gif" ontouchstart="blockFunction(event)"/>
 
+
     <img id="blocks5" src="./game_images/sink2.gif" ontouchstart="blockFunction(event)"/>
+
     <img id="blocks6" src="./game_images/sesu2.gif" ontouchstart="blockFunction(event)"/>
+
     <img id="blocks7" src="./game_images/sesu2.gif" ontouchstart="blockFunction(event)"/>
-    <img id="blocks8" src="./game_images/shower1.gif" ontouchstart="blockFunction(event)"/>
+
+    <img id="blocks8" src="./game_images/shower1.gif" ontouchstart="blockFunction(event); playAudio();"/>
+
     <img id="blocks9" src="./game_images/hose1.gif" ontouchstart="blockFunction(event)"/>
+
     
 
     <img id="items0" class="drobby" src="./game_images/drop6.png" ontouchstart="blocksFunction(event)"/>
@@ -49,6 +69,22 @@ to save the water.
         var score = 0;
         var time = 0;
         var yn = 0;
+        
+        var x = document.createElement("audio"); 
+        x.loop = true;
+        var y = document.createElement("source"); 
+        y.src = "./game_images/bathroom-faucet-1.mp3";
+        y.type = "audio/mpeg";
+        x.appendChild(y);
+        
+        function playAudio() { 
+            x.play(); 
+        } 
+
+        function pauseAudio() { 
+            x.pause(); 
+        } 
+        
         
         if(localStorage.getItem("loginStatus") == "false"){
             var div1 = document.createElement("div");
@@ -76,7 +112,7 @@ to save the water.
             div.style.border = "solid";
             div.style.zIndex = "5";
             
-            tmpStr += "<table style='position:absolute; left:15%; top:5%; text-align:center;' cellspacing='10';><thead><tr><td>RANK</td><td>NAME</td><td>SCORE</td></tr></thead>"; 
+            tmpStr += "<table style='position:absolute; left:13%; top:5%; text-align:center;' cellspacing='10';><thead><tr><td>RANK</td><td>NAME</td><td>SCORE</td></tr></thead>"; 
             var rank = 1;
             var iter = 0;
             var arr = [];
@@ -140,6 +176,7 @@ to save the water.
             document.getElementById("water").style.height = waterLevel + "px";
             score += 1;
             document.getElementById("score").innerHTML = "score : " + score;
+                
             }
             return false;
         }
@@ -154,11 +191,13 @@ to save the water.
             setInterval(function(){ 
             var spawnRatio = Math.floor((Math.random() * 2) + 1);
             if(spawnRatio==1){
+                playAudio();
                 var max = Math.floor((Math.random() * 2) + 1);
                 for(var i = 0; i<max; i++){
                     var source = Math.floor((Math.random() * 10) + 1) - 1;
                     if(!blockVariables[source]){
-                    if( 0 == source){document.getElementById("blocks0").src = "./game_images/stove2w.gif";}else if( 1 == source){document.getElementById("blocks1").src = "./game_images/laundry1w.gif" ;}else if( 2 == source){document.getElementById("blocks2").src = "./game_images/sesu2w.gif";}else if( 3 == source){document.getElementById("blocks3").src = "./game_images/bottle2w.gif";}else if( 4== source){document.getElementById("blocks4").src = "./game_images/sink2w.gif";}else if( 5 == source){document.getElementById("blocks5").src = "./game_images/sink2w.gif";}else if( 6 == source){document.getElementById("blocks6").src = "./game_images/sesu2w.gif";}else if( 7 == source){document.getElementById("blocks7").src = "./game_images/sesu2w.gif";}else if( 8 == source){document.getElementById("blocks8").src = "./game_images/shower1w.gif";}else if( 9 == source){document.getElementById("blocks9").src = "./game_images/hose1w.gif";}blockVariables[source] = !blockVariables[source];
+                    if( 0 == source){document.getElementById("blocks0").src = "./game_images/stove2w.gif";           }else if( 1 == source){document.getElementById("blocks1").src = "./game_images/laundry1w.gif" ;}else if( 2 == source){document.getElementById("blocks2").src = "./game_images/sesu2w.gif";}else if( 3 == source){document.getElementById("blocks3").src = "./game_images/bottle2w.gif";}else if( 4== source){document.getElementById("blocks4").src = "./game_images/sink2w.gif";}else if( 5 == source){document.getElementById("blocks5").src = "./game_images/sink2w.gif";}else if( 6 == source){document.getElementById("blocks6").src = "./game_images/sesu2w.gif";}else if( 7 == source){document.getElementById("blocks7").src = "./game_images/sesu2w.gif";}else if( 8 == source){document.getElementById("blocks8").src = "./game_images/shower1w.gif";}else if( 9 == source){document.getElementById("blocks9").src = "./game_images/hose1w.gif";}blockVariables[source] = !blockVariables[source];
+                        
                     }
                 }
             }
@@ -178,10 +217,10 @@ to save the water.
                 waterLevel = 2;
             }
             for(var i = 0 ; i < 10 ; i++){
+                var tmpNum = 0;
                 if(blockVariables[i]){
-                //waterLevel -= 1.0;
-                    waterLevel -= 50.0;
-                var tmpStr = "";
+                waterLevel -= 1.0;
+                tmpNum++;
                 if(truePrac){
                 if(waterLevel <= 0){
                    truePrac = false;
@@ -242,7 +281,12 @@ to save the water.
                 document.getElementById("water").style.height = waterLevel + "px";
                 }
                 }
-            }}, 200);
+                
+            }
+            if(tmpNum == 0){
+                pauseAudio();
+            }
+            }, 200);
          }
         function ynFunction1(){
             window.location.href="login.html";
