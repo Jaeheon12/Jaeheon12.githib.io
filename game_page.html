@@ -28,27 +28,35 @@ zoom out, zoom in
         <div id="time" style="position:absolute; top:70%; left:40%;">time : 00</div>
         <div id="score" style="position:absolute; top:70%; left:75%">score : 00</div>  
     </div>
+
+    
+    <audio controls id="myAudio0">
+        <source src="bathroom-faucet-1.mp3" type="audio/mpeg" />
+    </audio>
+    <audio controls id="myAudio1">
+        <source src="bathroom-faucet-1.mp3" type="audio/mpeg" />
+    </audio>
+    <audio controls id="myAudio2">
+        <source src="bathroom-faucet-1.mp3" type="audio/mpeg" />
+    </audio>
+<!--
+    <audio id="myAudio">
+        <source src="bathroom-faucet-1.mp3";>
+    </audio>
+-->
+
+    
       
     <div id="base">
     <img id="blocks0" src="./game_images/stove2.gif" ontouchstart="blockFunction(event)"/>
-
     <img id="blocks1" src="./game_images/laundry1.gif" ontouchstart="blockFunction(event)"/>
-
     <img id="blocks2" src="./game_images/sesu2.gif" ontouchstart="blockFunction(event)"/>
-
     <img id="blocks3" src="./game_images/bottle2.gif" ontouchstart="blockFunction(event)"/>
-
     <img id="blocks4" src="./game_images/sink2.gif" ontouchstart="blockFunction(event)"/>
-
-
     <img id="blocks5" src="./game_images/sink2.gif" ontouchstart="blockFunction(event)"/>
-
     <img id="blocks6" src="./game_images/sesu2.gif" ontouchstart="blockFunction(event)"/>
-
     <img id="blocks7" src="./game_images/sesu2.gif" ontouchstart="blockFunction(event)"/>
-
-    <img id="blocks8" src="./game_images/shower1.gif" ontouchstart="blockFunction(event); playAudio();"/>
-
+    <img id="blocks8" src="./game_images/shower1.gif" ontouchstart="blockFunction(event);"/>
     <img id="blocks9" src="./game_images/hose1.gif" ontouchstart="blockFunction(event)"/>
 
     
@@ -70,22 +78,53 @@ zoom out, zoom in
         var time = 0;
         var yn = 0;
         
-        var x = document.createElement("audio"); 
-        x.loop = true;
-        var y = document.createElement("source"); 
-        y.src = "./game_images/bathroom-faucet-1.mp3";
-        y.type = "audio/mpeg";
-        x.appendChild(y);
+        var x0 = document.getElementById("myAudio0"); 
+        var x1 = document.getElementById("myAudio1"); 
+        var x2 = document.getElementById("myAudio2"); 
+     
         
-        function playAudio() { 
-            x.play(); 
+        
+        
+        function playAudio(e) { 
+            if(e==0){
+                x0.play();
+            }else if(e==1){
+                x1.play();
+            }else if(e==2){
+                x2.play();
+            }
         } 
 
-        function pauseAudio() { 
-            x.pause(); 
-        } 
+        function pauseAudio(e) { 
+            if(e==0){
+                x0.pause();
+            }else if(e==1){
+                x1.pause();
+            }else if(e==2){
+                x2.pause();
+            }
+        }
+        function setUp() { 
+            playAudio(0);playAudio(1);playAudio(2);
+            pauseAudio(1);pauseAudio(2);pauseAudio(0);
+        }
+        //=============================================================================
+        var div2 = document.createElement("div");
+        div2.setAttribute("id","gameprevious");
+        div2.style.backgroundColor = "#382F71";
+        div2.style.width = "375px";
+        div2.style.height = "700px";
+        div2.style.opacity = "0.5";
+        div2.style.border = "solid";
+        div2.style.zIndex = "6";
+        div2.style.textAlign = "center";
+        div2.style.fontSize = "30px";
+        div2.style.color = "azure";
+        div2.innerHTML = "<br>start game?<br><input type='button' value='yes' onclick='setUp();randFunction();div2.remove(); '/><br><input type='button' value='no' onclick='x.pause();'/><br>";
+        document.getElementById("base").appendChild(div2);
         
         
+        //==============================================================================
         if(localStorage.getItem("loginStatus") == "false"){
             var div1 = document.createElement("div");
             div1.setAttribute("id","gamestart");
@@ -99,8 +138,8 @@ zoom out, zoom in
             div1.innerHTML = "<br>Do you want to log in?<br><input type='button' value='yes' onclick='ynFunction1()'/><br><input type='button' value='no' onclick='ynFunction2()'/><br>";
             document.getElementById("base").appendChild(div1);
         }else{
-            randFunction();
-        }        
+            //randFunction();
+        }
         function scoreLine(){
             var tmpStr ="";
             
@@ -158,7 +197,6 @@ zoom out, zoom in
 
             div.appendChild(btn2);
             
-            
             document.getElementById("base").appendChild(div);
         }
         
@@ -170,6 +208,7 @@ zoom out, zoom in
         waterLevel = document.getElementById("water").getBoundingClientRect().height;
         function blockFunction(e){
             if(blockVariables[e.target.id.charAt(e.target.id.length-1)]){
+            pauseAudio(e.target.id.charAt(e.target.id.length-1));
             var source = e.target.id.charAt(e.target.id.length-1);
             if( 0 == source){document.getElementById("blocks0").src = "./game_images/stove2.gif";}else if( 1 == source){document.getElementById("blocks1").src = "./game_images/laundry1.gif" ;}else if( 2 == source){document.getElementById("blocks2").src = "./game_images/sesu2.gif";}else if( 3 == source){document.getElementById("blocks3").src = "./game_images/bottle2.gif";}else if( 4== source){document.getElementById("blocks4").src = "./game_images/sink2.gif";}else if( 5 == source){document.getElementById("blocks5").src = "./game_images/sink2.gif";}else if( 6 == source){document.getElementById("blocks6").src = "./game_images/sesu2.gif";}else if( 7 == source){document.getElementById("blocks7").src = "./game_images/sesu2.gif";}else if( 8 == source){document.getElementById("blocks8").src = "./game_images/shower1.gif";}else if( 9 == source){document.getElementById("blocks9").src = "./game_images/hose1.gif";}blockVariables[source] = !blockVariables[source];
             waterLevel += 1.0;
@@ -188,10 +227,9 @@ zoom out, zoom in
         
         var truePrac = true;
         function randFunction() {
-            setInterval(function(){ 
+            setInterval(function(){
             var spawnRatio = Math.floor((Math.random() * 2) + 1);
             if(spawnRatio==1){
-                playAudio();
                 var max = Math.floor((Math.random() * 2) + 1);
                 for(var i = 0; i<max; i++){
                     var source = Math.floor((Math.random() * 10) + 1) - 1;
@@ -217,10 +255,9 @@ zoom out, zoom in
                 waterLevel = 2;
             }
             for(var i = 0 ; i < 10 ; i++){
-                var tmpNum = 0;
                 if(blockVariables[i]){
                 waterLevel -= 1.0;
-                tmpNum++;
+                playAudio(i);
                 if(truePrac){
                 if(waterLevel <= 0){
                    truePrac = false;
@@ -271,10 +308,6 @@ zoom out, zoom in
                     btn3.setAttribute("onclick", "scoreLine()");
                     
                     div1.appendChild(btn3);
-                    
-                    
-                    
-                    
                     document.getElementById("base").appendChild(div1);
                 }
                     
@@ -283,9 +316,7 @@ zoom out, zoom in
                 }
                 
             }
-            if(tmpNum == 0){
-                pauseAudio();
-            }
+
             }, 200);
          }
         function ynFunction1(){
