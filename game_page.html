@@ -93,10 +93,17 @@ zoom out, zoom in
         for(var i = 0 ; i < 10 ; i++){
             au[i] = document.getElementById("audio"+i);
         }
+        
+        var audio = new Audio("./game_images/water-faucet-1.mp3");
+        //audio.play();
+        var audio2 = new Audio("./game_images/shower-1.mp3");
+        //audio2.play();
+        
+        
                
         function playAudio(e) { 
             if(au[e].paused){
-                au[e].play();
+                //au[e].play();
             }
             
 //            if(e==0 && document.getElementById("audio0").paused){
@@ -149,9 +156,11 @@ zoom out, zoom in
 //            }
         }
         function setUp() { 
-            for(var i = 0 ; i < 10 ; i++){
-                playAudio(i);pauseAudio(i);   
-            }
+            audio.play();
+            audio2.play();
+//            for(var i = 0 ; i < 10 ; i++){
+//                playAudio(i);pauseAudio(i);   
+//            }
         }
         //=============================================================================
         var div2 = document.createElement("div");
