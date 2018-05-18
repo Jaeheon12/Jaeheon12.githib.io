@@ -37,26 +37,26 @@ zoom out, zoom in
     <div id="base">
     <img id="blocks0" src="./game_images/stove2.gif" ontouchstart="blockFunction(event)"/>
 <!--    <audio id="audio0"><source src="./game_images/emptying-water-2.mp3" type="audio/mpeg" /></audio>-->
-    <audio id="audio0"><source src="./game_images/water-faucet-1.mp3" type="audio/mpeg" /></audio>
+    
         
     <img id="blocks1" src="./game_images/laundry1.gif" ontouchstart="blockFunction(event)"/>
 <!--    <audio id="audio1"><source src="./game_images/lake-waves-lapping-on-the-beach-01.mp3" type="audio/mpeg" /></audio>-->
-        <audio id="audio1"><source src="./game_images/water-faucet-1.mp3" type="audio/mpeg" /></audio>
+    
         
     <img id="blocks2" src="./game_images/sesu2.gif" ontouchstart="blockFunction(event)"/>
     <audio id="audio2"><source src="./game_images/water-faucet-1.mp3" type="audio/mpeg" /></audio>
         
     <img id="blocks3" src="./game_images/bottle2.gif" ontouchstart="blockFunction(event)"/>
 <!--    <audio id="audio3"><source src="./game_images/dripping-faucet-1.mp3" type="audio/mpeg" /></audio>-->
-        <audio id="audio3"><source src="./game_images/water-faucet-1.mp3" type="audio/mpeg" /></audio>
+
         
     <img id="blocks4" src="./game_images/sink2.gif" ontouchstart="blockFunction(event)"/>
 <!--    <audio id="audio4"><source src="./game_images/bathroom-faucet-1.mp3" type="audio/mpeg" /></audio>-->
-        <audio id="audio4"><source src="./game_images/water-faucet-1.mp3" type="audio/mpeg" /></audio>
+
         
     <img id="blocks5" src="./game_images/sink2.gif" ontouchstart="blockFunction(event)"/>
 <!--    <audio id="audio5"><source src="./game_images/bathroom-faucet-1.mp3" type="audio/mpeg" /></audio>-->
-        <audio id="audio5"><source src="./game_images/water-faucet-1.mp3" type="audio/mpeg" /></audio>
+
         
     <img id="blocks6" src="./game_images/sesu2.gif" ontouchstart="blockFunction(event)"/>
     <audio id="audio6"><source src="./game_images/water-faucet-1.mp3" type="audio/mpeg" /></audio>
@@ -66,11 +66,11 @@ zoom out, zoom in
         
     <img id="blocks8" src="./game_images/shower1.gif" ontouchstart="blockFunction(event);"/>
 <!--    <audio id="audio8"><source src="./game_images/shower-1.mp3" type="audio/mpeg" /></audio>-->
-        <audio id="audio8"><source src="./game_images/water-faucet-1.mp3" type="audio/mpeg" /></audio>
+
         
     <img id="blocks9" src="./game_images/hose1.gif" ontouchstart="blockFunction(event)"/>
 <!--    <audio id="audio9"><source src="./game_images/river-2.mp3" type="audio/mpeg" /></audio>-->
-        <audio id="audio9"><source src="./game_images/water-faucet-1.mp3" type="audio/mpeg" /></audio>
+
 
     <img id="items0" class="drobby" src="./game_images/drop6.png" ontouchstart="blocksFunction(event)"/>
     <img id="items1" class="drobby" src="./game_images/drop6.png" ontouchstart="blocksFunction(event)"/>
@@ -89,21 +89,12 @@ zoom out, zoom in
         var time = 0;
         var yn = 0;
         
-        var au = [];
-        for(var i = 0 ; i < 10 ; i++){
-            au[i] = document.getElementById("audio"+i);
-        }
-        
-        var audio = new Audio("./game_images/water-faucet-1.mp3");
-        //audio.play();
-        var audio2 = new Audio("./game_images/shower-1.mp3");
-        //audio2.play();
-        
+        var audio = [];
         
                
         function playAudio(e) { 
-            if(au[e].paused){
-                //au[e].play();
+            if(audio[e].paused){
+                audio[e].play();
             }
             
 //            if(e==0 && document.getElementById("audio0").paused){
@@ -131,7 +122,7 @@ zoom out, zoom in
 
         function pauseAudio(e) {
             
-            au[e].pause();
+            audio[e].pause();
             
 //            if(e==0 ){
 //                document.getElementById("audio0").pause();
@@ -156,11 +147,21 @@ zoom out, zoom in
 //            }
         }
         function setUp() { 
-            audio.play();
-            audio2.play();
-//            for(var i = 0 ; i < 10 ; i++){
-//                playAudio(i);pauseAudio(i);   
-//            }
+            
+            audio[0] = new Audio("./game_images/emptying-water-2.mp3");
+            audio[1] = new Audio("./game_images/lake-waves-lapping-on-the-beach-01.mp3");
+            audio[2] = new Audio("./game_images/water-faucet-1.mp3");
+            audio[3] = new Audio("./game_images/dripping-faucet-1.mp3");
+            audio[4] = new Audio("./game_images/bathroom-faucet-1.mp3");
+            audio[5] = new Audio("./game_images/bathroom-faucet-1.mp3");
+            audio[6] = new Audio("./game_images/water-faucet-1.mp3");
+            audio[7] = new Audio("./game_images/water-faucet-1.mp3");
+            audio[8] = new Audio("./game_images/shower-1.mp3");
+            audio[9] = new Audio("./game_images/river-2.mp3");
+            
+            for(var i = 0 ; i < 10 ; i++){
+                playAudio(i);pauseAudio(i);   
+            }
         }
         //=============================================================================
         var div2 = document.createElement("div");
