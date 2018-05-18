@@ -81,53 +81,65 @@ zoom out, zoom in
         var score = 0;
         var time = 0;
         var yn = 0;
+        
+        var au = [];
+        for(var i = 0 ; i < 10 ; i++){
+            au[i] = document.getElementById("audio"+i);
+        }
                
         function playAudio(e) { 
-            if(e==0 && document.getElementById("audio0").paused){
-                document.getElementById("audio0").play();
-            }else if(e==1 && document.getElementById("audio1").paused){
-                document.getElementById("audio1").play();
-            }else if(e==2 && document.getElementById("audio2").paused){
-                document.getElementById("audio2").play();
-            }else if(e==3 && document.getElementById("audio3").paused){
-                document.getElementById("audio3").play();
-            }else if(e==4 && document.getElementById("audio4").paused){
-                document.getElementById("audio4").play();
-            }else if(e==5 && document.getElementById("audio5").paused){
-                document.getElementById("audio5").play();
-            }else if(e==6 && document.getElementById("audio6").paused){
-                document.getElementById("audio6").play();
-            }else if(e==7 && document.getElementById("audio7").paused){
-                document.getElementById("audio7").play();
-            }else if(e==8 && document.getElementById("audio8").paused){
-                document.getElementById("audio8").play();
-            }else if(e==9 && document.getElementById("audio9").paused){
-                document.getElementById("audio9").play();
+            if(au[e].paused){
+                au[e].play();
             }
+            
+//            if(e==0 && document.getElementById("audio0").paused){
+//                document.getElementById("audio0").play();
+//            }else if(e==1 && document.getElementById("audio1").paused){
+//                document.getElementById("audio1").play();
+//            }else if(e==2 && document.getElementById("audio2").paused){
+//                document.getElementById("audio2").play();
+//            }else if(e==3 && document.getElementById("audio3").paused){
+//                document.getElementById("audio3").play();
+//            }else if(e==4 && document.getElementById("audio4").paused){
+//                document.getElementById("audio4").play();
+//            }else if(e==5 && document.getElementById("audio5").paused){
+//                document.getElementById("audio5").play();
+//            }else if(e==6 && document.getElementById("audio6").paused){
+//                document.getElementById("audio6").play();
+//            }else if(e==7 && document.getElementById("audio7").paused){
+//                document.getElementById("audio7").play();
+//            }else if(e==8 && document.getElementById("audio8").paused){
+//                document.getElementById("audio8").play();
+//            }else if(e==9 && document.getElementById("audio9").paused){
+//                document.getElementById("audio9").play();
+//            }
         } 
 
-        function pauseAudio(e) { 
-            if(e==0 ){
-                document.getElementById("audio0").pause();
-            }else if(e==1 ){
-                document.getElementById("audio1").pause();
-            }else if(e==2 ){
-                document.getElementById("audio2").pause();
-            }else if(e==3 ){
-                document.getElementById("audio3").pause();
-            }else if(e==4 ){
-                document.getElementById("audio4").pause();
-            }else if(e==5 ){
-                document.getElementById("audio5").pause();
-            }else if(e==6 ){
-                document.getElementById("audio6").pause();
-            }else if(e==7 ){
-                document.getElementById("audio7").pause();
-            }else if(e==8 ){
-                document.getElementById("audio8").pause();
-            }else if(e==9 ){
-                document.getElementById("audio9").pause();
-            }
+        function pauseAudio(e) {
+            
+            au[e].pause();
+            
+//            if(e==0 ){
+//                document.getElementById("audio0").pause();
+//            }else if(e==1 ){
+//                document.getElementById("audio1").pause();
+//            }else if(e==2 ){
+//                document.getElementById("audio2").pause();
+//            }else if(e==3 ){
+//                document.getElementById("audio3").pause();
+//            }else if(e==4 ){
+//                document.getElementById("audio4").pause();
+//            }else if(e==5 ){
+//                document.getElementById("audio5").pause();
+//            }else if(e==6 ){
+//                document.getElementById("audio6").pause();
+//            }else if(e==7 ){
+//                document.getElementById("audio7").pause();
+//            }else if(e==8 ){
+//                document.getElementById("audio8").pause();
+//            }else if(e==9 ){
+//                document.getElementById("audio9").pause();
+//            }
         }
         function setUp() { 
             for(var i = 0 ; i < 10 ; i++){
