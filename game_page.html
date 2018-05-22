@@ -1,76 +1,43 @@
-<!--
-The source code of this webpage contains a game.
-programmer: Jaeheon Jung
-art asset designer : Jaeheon Jung
-The method of the game : 
-A user has to turn off the faucats that are randomely turned on and take items
-to save the water.
--->
-
-<!--
-time stops
-difficulty
-sounds
-zoom out, zoom in
--->
-
-
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <link rel="stylesheet" href="style1.css"/>
 </head>
-<body>
+<body>    
+<!--
+The source code of this webpage contains a game.
+programmer: Jaeheon Jung
+art asset designer : Jaeheon Jung
+The method of the game : 
+A user has to turn off the faucets that are randomely turned on and takes items
+to save water.
+
+2018 All copyright reserved
+
+salmon, difficulty, item sound
+shows up game score( number 31 my score), change to higher score,instructions,
+-->
+
     <div id = "title">
         <p><b>Save Our Water!</b></p>
         <div id="time" style="position:absolute; top:70%; left:40%;">time : 00</div>
         <div id="score" style="position:absolute; top:70%; left:75%">score : 00</div>  
     </div>
 
-    
-    
-    
-    
-      
+    <audio id="audio1"><source src="https://www.soundjay.com/nature/sounds/lake-waves-lapping-on-the-shore-02.mp3" type="audio/mpeg" /></audio>
+    <audio id="audio2"><source src="https://www.soundjay.com/button/sounds/button-09.mp3" type="audio/mpeg" /></audio>
     <div id="base">
-    <img id="blocks0" src="./game_images/stove2.gif" ontouchstart="blockFunction(event)"/>
-<!--    <audio id="audio0"><source src="./game_images/emptying-water-2.mp3" type="audio/mpeg" /></audio>-->
-    
-        
+    <img id="blocks0" src="./game_images/stove2.gif" ontouchstart="blockFunction(event)"/>    
     <img id="blocks1" src="./game_images/laundry1.gif" ontouchstart="blockFunction(event)"/>
-    <audio id="audio1"><source src="./game_images/lake-waves-lapping-on-the-beach-01.mp3" type="audio/mpeg" /></audio>
-    
-        
     <img id="blocks2" src="./game_images/sesu2.gif" ontouchstart="blockFunction(event)"/>
-    <audio id="audio2"><source src="./game_images/water-faucet-1.mp3" type="audio/mpeg" /></audio>
-        
     <img id="blocks3" src="./game_images/bottle2.gif" ontouchstart="blockFunction(event)"/>
-<!--    <audio id="audio3"><source src="./game_images/dripping-faucet-1.mp3" type="audio/mpeg" /></audio>-->
-
-        
     <img id="blocks4" src="./game_images/sink2.gif" ontouchstart="blockFunction(event)"/>
-<!--    <audio id="audio4"><source src="./game_images/bathroom-faucet-1.mp3" type="audio/mpeg" /></audio>-->
-
-        
     <img id="blocks5" src="./game_images/sink2.gif" ontouchstart="blockFunction(event)"/>
-<!--    <audio id="audio5"><source src="./game_images/bathroom-faucet-1.mp3" type="audio/mpeg" /></audio>-->
-
-        
     <img id="blocks6" src="./game_images/sesu2.gif" ontouchstart="blockFunction(event)"/>
-    <audio id="audio6"><source src="./game_images/water-faucet-1.mp3" type="audio/mpeg" /></audio>
-        
     <img id="blocks7" src="./game_images/sesu2.gif" ontouchstart="blockFunction(event)"/>
-    <audio id="audio7"><source src="./game_images/water-faucet-1.mp3" type="audio/mpeg" /></audio>
-        
     <img id="blocks8" src="./game_images/shower1.gif" ontouchstart="blockFunction(event);"/>
-<!--    <audio id="audio8"><source src="./game_images/shower-1.mp3" type="audio/mpeg" /></audio>-->
-
-        
     <img id="blocks9" src="./game_images/hose1.gif" ontouchstart="blockFunction(event)"/>
-<!--    <audio id="audio9"><source src="./game_images/river-2.mp3" type="audio/mpeg" /></audio>-->
-
 
     <img id="items0" class="drobby" src="./game_images/drop6.png" ontouchstart="blocksFunction(event)"/>
     <img id="items1" class="drobby" src="./game_images/drop6.png" ontouchstart="blocksFunction(event)"/>
@@ -87,103 +54,21 @@ zoom out, zoom in
         var waterLevel = 200;
         var score = 0;
         var time = 0;
-        var yn = 0;
+        var setMenu = 0;
         
-        var audio = [];
         var au = document.getElementById("audio1");
-        
-               
+        au.loop = true;
         function playAudio(e) { 
             if(au.paused){
-                //audio[e].currentTime = 0;
                 au.play();
             }
-            
-//            if(e==0 && document.getElementById("audio0").paused){
-//                document.getElementById("audio0").play();
-//            }else if(e==1 && document.getElementById("audio1").paused){
-//                document.getElementById("audio1").play();
-//            }else if(e==2 && document.getElementById("audio2").paused){
-//                document.getElementById("audio2").play();
-//            }else if(e==3 && document.getElementById("audio3").paused){
-//                document.getElementById("audio3").play();
-//            }else if(e==4 && document.getElementById("audio4").paused){
-//                document.getElementById("audio4").play();
-//            }else if(e==5 && document.getElementById("audio5").paused){
-//                document.getElementById("audio5").play();
-//            }else if(e==6 && document.getElementById("audio6").paused){
-//                document.getElementById("audio6").play();
-//            }else if(e==7 && document.getElementById("audio7").paused){
-//                document.getElementById("audio7").play();
-//            }else if(e==8 && document.getElementById("audio8").paused){
-//                document.getElementById("audio8").play();
-//            }else if(e==9 && document.getElementById("audio9").paused){
-//                document.getElementById("audio9").play();
-//            }
         } 
-
         function pauseAudio(e) {
-            if(!au.paused)
+            if(!au.paused){
                 au.pause();
-            
-//            if(e==0 ){
-//                document.getElementById("audio0").pause();
-//            }else if(e==1 ){
-//                document.getElementById("audio1").pause();
-//            }else if(e==2 ){
-//                document.getElementById("audio2").pause();
-//            }else if(e==3 ){
-//                document.getElementById("audio3").pause();
-//            }else if(e==4 ){
-//                document.getElementById("audio4").pause();
-//            }else if(e==5 ){
-//                document.getElementById("audio5").pause();
-//            }else if(e==6 ){
-//                document.getElementById("audio6").pause();
-//            }else if(e==7 ){
-//                document.getElementById("audio7").pause();
-//            }else if(e==8 ){
-//                document.getElementById("audio8").pause();
-//            }else if(e==9 ){
-//                document.getElementById("audio9").pause();
-//            }
+            }
         }
-        function setUp() { 
-            au.play();
-            au.pause();
-//            audio[0] = new Audio("./game_images/emptying-water-2.mp3");
-            //audio[1] = new Audio("./game_images/lake-waves-lapping-on-the-beach-01.mp3");
-//            audio[2] = new Audio("./game_images/water-faucet-1.mp3");
-//            audio[3] = new Audio("./game_images/dripping-faucet-1.mp3");
-//            audio[4] = new Audio("./game_images/bathroom-faucet-1.mp3");
-//            audio[5] = new Audio("./game_images/bathroom-faucet-1.mp3");
-//            audio[6] = new Audio("./game_images/water-faucet-1.mp3");
-//            audio[7] = new Audio("./game_images/water-faucet-1.mp3");
-//            audio[8] = new Audio("./game_images/shower-1.mp3");
-//            audio[9] = new Audio("./game_images/river-2.mp3");
-            
-//            for(var i = 0 ; i < 10 ; i++){
-//                playAudio(i);pauseAudio(i);   
-//            }
-        }
-        //=============================================================================
-        var div2 = document.createElement("div");
-        div2.setAttribute("id","gameprevious");
-        div2.style.backgroundColor = "#382F71";
-        div2.style.width = "375px";
-        div2.style.height = "700px";
-        div2.style.opacity = "0.5";
-        div2.style.border = "solid";
-        div2.style.zIndex = "6";
-        div2.style.textAlign = "center";
-        div2.style.fontSize = "30px";
-        div2.style.color = "azure";
-        div2.innerHTML = "<br>start game?<br><input type='button' value='yes' onclick='setUp();randFunction();div2.remove(); '/><br><input type='button' value='no' onclick='x.pause();'/><br>";
-        document.getElementById("base").appendChild(div2);
-        
-        
-        //==============================================================================
-        if(localStorage.getItem("loginStatus") == "false"){
+        if(localStorage.getItem("loginStatus") == "false"){        
             var div1 = document.createElement("div");
             div1.setAttribute("id","gamestart");
             div1.style.backgroundColor = "#382F71";
@@ -191,12 +76,27 @@ zoom out, zoom in
             div1.style.border = "solid";
             div1.style.zIndex = "6";
             div1.style.textAlign = "center";
-            div1.style.fontSize = "30px";
+            div1.style.fontSize = "24px";
             div1.style.color = "azure";
-            div1.innerHTML = "<br>Do you want to log in?<br><input type='button' value='yes' onclick='ynFunction1()'/><br><input type='button' value='no' onclick='ynFunction2()'/><br>";
+            div1.innerHTML = "<br>Do you want to log in to save score?<br><br><input type='button' value='yes' onclick='ynFunction1()'/>&emsp;<input type='button' value='no' onclick='au.play();au.pause();randFunction();div1.remove();'/><br>";
             document.getElementById("base").appendChild(div1);
         }else{
-            //randFunction();
+            var div2 = document.createElement("div");
+            div2.setAttribute("id","gameprevious");
+            div2.style.backgroundColor = "#382F71";
+            div2.style.position = "absolute";
+            div2.style.left = "13%";
+            div2.style.top = "15%";
+            div2.style.width = "280px";
+            div2.style.height = "200px";
+            div2.style.opacity = "0.7";
+            div2.style.border = "solid";
+            div2.style.zIndex = "6";
+            div2.style.textAlign = "center";
+            div2.style.fontSize = "30px";
+            div2.style.color = "azure";
+            div2.innerHTML = "<br>start game?<br><br><input type='button' value='yes' onclick='au.play();au.pause();randFunction();div2.remove();'/>&emsp;<input type='button' value='no' onclick='ynFunction2();'/><br>";
+            document.getElementById("base").appendChild(div2);
         }
         function scoreLine(){
             var tmpStr ="";
@@ -209,7 +109,7 @@ zoom out, zoom in
             div.style.border = "solid";
             div.style.zIndex = "5";
             
-            tmpStr += "<table style='position:absolute; left:13%; top:5%; text-align:center;' cellspacing='10';><thead><tr><td>RANK</td><td>NAME</td><td>SCORE</td></tr></thead>"; 
+            tmpStr += "<table style='position:absolute; left:17%; top:5%; text-align:center;' cellspacing='10';><thead><tr><td>RANK</td><td>NAME</td><td>SCORE</td></tr></thead>"; 
             var rank = 1;
             var iter = 0;
             var arr = [];
@@ -227,7 +127,9 @@ zoom out, zoom in
             }}
             });
             for(var i = 0 ; i < arr.length ; i++){
+                if(rank<=8){
                 tmpStr += "<tr><td>" + rank++ + "</td><td>" + arr[i]['user_name'] + "</td><td>" + arr[i]['user_score'] + "</td></tr>";
+                }
             }
             tmpStr += "</table>";
             div.innerHTML = tmpStr;
@@ -266,32 +168,32 @@ zoom out, zoom in
         waterLevel = document.getElementById("water").getBoundingClientRect().height;
         function blockFunction(e){
             if(blockVariables[e.target.id.charAt(e.target.id.length-1)]){
-            //pauseAudio(e.target.id.charAt(e.target.id.length-1));
             var source = e.target.id.charAt(e.target.id.length-1);
             if( 0 == source){document.getElementById("blocks0").src = "./game_images/stove2.gif";}else if( 1 == source){document.getElementById("blocks1").src = "./game_images/laundry1.gif" ;}else if( 2 == source){document.getElementById("blocks2").src = "./game_images/sesu2.gif";}else if( 3 == source){document.getElementById("blocks3").src = "./game_images/bottle2.gif";}else if( 4== source){document.getElementById("blocks4").src = "./game_images/sink2.gif";}else if( 5 == source){document.getElementById("blocks5").src = "./game_images/sink2.gif";}else if( 6 == source){document.getElementById("blocks6").src = "./game_images/sesu2.gif";}else if( 7 == source){document.getElementById("blocks7").src = "./game_images/sesu2.gif";}else if( 8 == source){document.getElementById("blocks8").src = "./game_images/shower1.gif";}else if( 9 == source){document.getElementById("blocks9").src = "./game_images/hose1.gif";}blockVariables[source] = !blockVariables[source];
             waterLevel += 1.0;
             document.getElementById("water").style.height = waterLevel + "px";
             score += 1;
             document.getElementById("score").innerHTML = "score : " + score;
-                
+            
             }
             return false;
         }
         function blocksFunction(e){
             e.target.style.visibility = "hidden";
             waterLevel += 10/2;
+            document.getElementById("audio2").play();
             document.getElementById("water").style.height = waterLevel + "px";
         }
         
         var truePrac = true;
-        function randFunction() {
+        function randFunction() {  
             setInterval(function(){
             var spawnRatio = Math.floor((Math.random() * 2) + 1);
             if(spawnRatio==1){
                 var max = Math.floor((Math.random() * 2) + 1);
                 for(var i = 0; i<max; i++){
                     var source = Math.floor((Math.random() * 10) + 1) - 1;
-                    if(!blockVariables[source]){
+                    if(!blockVariables[source] && setMenu==0){
                         playAudio(1);
                     if( 0 == source){document.getElementById("blocks0").src = "./game_images/stove2w.gif";           }else if( 1 == source){document.getElementById("blocks1").src = "./game_images/laundry1w.gif" ;}else if( 2 == source){document.getElementById("blocks2").src = "./game_images/sesu2w.gif";}else if( 3 == source){document.getElementById("blocks3").src = "./game_images/bottle2w.gif";}else if( 4== source){document.getElementById("blocks4").src = "./game_images/sink2w.gif";}else if( 5 == source){document.getElementById("blocks5").src = "./game_images/sink2w.gif";}else if( 6 == source){document.getElementById("blocks6").src = "./game_images/sesu2w.gif";}else if( 7 == source){document.getElementById("blocks7").src = "./game_images/sesu2w.gif";}else if( 8 == source){document.getElementById("blocks8").src = "./game_images/shower1w.gif";}else if( 9 == source){document.getElementById("blocks9").src = "./game_images/hose1w.gif";}blockVariables[source] = !blockVariables[source];
                         
@@ -302,9 +204,11 @@ zoom out, zoom in
                 var max = Math.floor((Math.random() * 3) + 1) - 1;
                 for(var i = 0; i<max; i++){
                 var source = Math.floor((Math.random() * 3) + 1) - 1;
-                if(source == 0){document.getElementById("items0").style.visibility="visible";}else if(source == 1){document.getElementById("items1").style.visibility="visible";}else if(source == 2){document.getElementById("items2").style.visibility="visible";}}
+                if(source == 0 && setMenu==0){document.getElementById("items0").style.visibility="visible";}else if(source == 1 && setMenu==0){document.getElementById("items1").style.visibility="visible";}else if(source == 2 && setMenu==0){document.getElementById("items2").style.visibility="visible";}}
             }
-            time += 1;
+            if(setMenu==0){
+                time += 1;
+            }
 
             document.getElementById("time").innerHTML = "time : " + time;}, 1000);
             setInterval(function(){ 
@@ -322,6 +226,7 @@ zoom out, zoom in
                 if(truePrac){
                 if(waterLevel <= 0){
                    truePrac = false;
+                    setMenu = -1;
                     saveScore(score);
                     
                     var div1 = document.createElement("div");
